@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres estar conmigo?</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #ff6b81;
+            margin-bottom: 30px;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-success {
+            background-color: #6bcf63;
+            border: none;
+        }
+        .btn-success:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(107, 207, 99, 0.5);
+        }
+        .btn-danger {
+            background-color: #ff4d4f;
+            border: none;
+            position: absolute;
+        }
+        .btn-danger:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 77, 79, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container position-relative">
+        <h1>¿Quieres estar conmigo? ❤️</h1>
+        <div class="d-flex justify-content-center gap-4 mt-4">
+            <a href="si.html" class="btn btn-success">Sí</a>
+            <button id="no-btn" class="btn btn-danger">No</button>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('no-btn');
+        const container = document.querySelector('.container');
+
+        // Función para mover el botón "No" dentro de los límites del contenedor
+        noBtn.addEventListener('mouseenter', () => {
+            const containerRect = container.getBoundingClientRect();
+            const btnWidth = noBtn.offsetWidth;
+            const btnHeight = noBtn.offsetHeight;
+
+            // Calcular posiciones aleatorias dentro del contenedor
+            const randomTop = Math.random() * (containerRect.height - btnHeight);
+            const randomLeft = Math.random() * (containerRect.width - btnWidth);
+
+            // Aplicar las posiciones aleatorias al botón
+            noBtn.style.top = `${randomTop}px`;
+            noBtn.style.left = `${randomLeft}px`;
+        });
+    </script>
+</body>
+</html>
